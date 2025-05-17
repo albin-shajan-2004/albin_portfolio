@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albin's Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+      position: relative;
+      height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .moving-text {
+      position: absolute;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #3498db;
+      animation: moveText 10s linear infinite;
+    }
+
+    @keyframes moveText {
+      0%   { top: 0%; left: 0%; }
+      25%  { top: 0%; left: 90%; }
+      50%  { top: 90%; left: 90%; }
+      75%  { top: 90%; left: 0%; }
+      100% { top: 0%; left: 0%; }
+    }
+
+    .kid-image {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 150px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Albin's Portfolio</h1>
+
+  <div class="moving-text">albin</div>
+
+  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F747386500675728730%2F&psig=AOvVaw0XgQH9t82gbhKhkWDCJbB_&ust=1747580221968000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLih7ubhqo0DFQAAAAAdAAAAABAE" alt="Kid" class="kid-image">
+
+  <script>
+    // Optional: Make 'albin' text move randomly every few seconds
+    const movingText = document.querySelector('.moving-text');
+
+    function randomMove() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      movingText.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    setInterval(randomMove, 2000);
+  </script>
+
+</body>
+</html>
