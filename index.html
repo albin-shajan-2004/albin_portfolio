@@ -1,72 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Albin's Portfolio</title>
+
+  <!-- ✅ CSP Security Header -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; 
+                 img-src 'self' https:; 
+                 style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; 
+                 font-src https://fonts.gstatic.com; 
+                 script-src 'self' 'unsafe-inline';">
+
+  <!-- ✅ Modern Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  
   <style>
     body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      background: #f0f0f0;
-      font-family: Arial, sans-serif;
-      position: relative;
-      height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      background: linear-gradient(to right, #0066cc, #00bcd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .moving-image {
+      width: 160px;
+      height: 160px;
+      margin-bottom: 20px;
+      animation: moveImage 5s infinite linear;
+      border-radius: 12px;
+      
+    }
+
+    @keyframes moveImage {
+      0%, 100% { transform: translateX(-15px); }
+      50% { transform: translateX(15px); }
+    }
+
+    p {
+      font-size: 1.2rem;
       color: #333;
+      margin-bottom: 20px;
     }
 
-    .moving-text {
-      position: absolute;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #3498db;
-      animation: moveText 10s linear infinite;
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    @keyframes moveText {
-      0%   { top: 0%; left: 0%; }
-      25%  { top: 0%; left: 90%; }
-      50%  { top: 90%; left: 90%; }
-      75%  { top: 90%; left: 0%; }
-      100% { top: 0%; left: 0%; }
+    button:hover {
+      background-color: #004999;
     }
 
-    .kid-image {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 150px;
-      height: auto;
+    #message {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #00796b;
+      display: none;
     }
   </style>
 </head>
 <body>
+  <h1>Albin Shajan C</h1>
+  <img src="kid.jpg" alt="Animated Image" class="moving-image fancy-in" />
 
-  <h1>Albin's Portfolio</h1>
-
-  <div class="moving-text">albin</div>
-
-  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F747386500675728730%2F&psig=AOvVaw0XgQH9t82gbhKhkWDCJbB_&ust=1747580221968000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLih7ubhqo0DFQAAAAAdAAAAABAE" alt="Kid" class="kid-image">
+  <p>Welcome to my website</p>
+  <button onclick="showThanks()">Click Me!</button>
+  <div id="message">Thanks for visiting, Albin appreciates you!</div>
 
   <script>
-    // Optional: Make 'albin' text move randomly every few seconds
-    const movingText = document.querySelector('.moving-text');
-
-    function randomMove() {
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 50);
-      movingText.style.transform = `translate(${x}px, ${y}px)`;
+    function showThanks() {
+      document.getElementById("message").style.display = "block";
     }
-
-    setInterval(randomMove, 2000);
   </script>
-
 </body>
 </html>
